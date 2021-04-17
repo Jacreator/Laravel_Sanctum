@@ -50,12 +50,20 @@ export default {
     this.$root.$on("login", () => {
       this.isLoggedIn = true;
     });
-    this.isLoggedIn = !!localStorage.getItem("auth");
+
+    // spa area
+    // this.isLoggedIn = !!localStorage.getItem("auth");
+
+    // api area
+    this.isLoggedIn = !!localStorage.getItem("token");
   },
   methods: {
     logout() {
       User.logout().then(() => {
-        localStorage.removeItem("auth");
+        // spa area
+        this.isLoggedIn = !!localStorage.getItem("auth");
+        // api area
+        localStorage.removeItem("token");
         this.isLoggedIn = false;
         this.$router.push({ name: "Home" });
       });

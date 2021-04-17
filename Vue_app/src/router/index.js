@@ -39,8 +39,15 @@ const router = new VueRouter({
   routes
 });
 
+
+//  spa area
+// function isLoggedIn() {
+//   return localStorage.getItem("auth");
+// }
+
+// api area
 function isLoggedIn() {
-  return localStorage.getItem("auth");
+  return localStorage.getItem("token");
 }
 
 router.beforeEach((to, from, next) => {

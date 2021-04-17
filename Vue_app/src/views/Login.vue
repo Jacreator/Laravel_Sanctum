@@ -42,7 +42,8 @@ export default {
     return {
       form: {
         email: "",
-        password: ""
+        password: "",
+        device_name: "browser"
       },
       errors: []
     };
@@ -50,10 +51,14 @@ export default {
   methods: {
     login() {
       User.login(this.form)
-        .then(() => {
+        .then(response => {
           this.$root.$emit("login", true);
           // store auth as boolean in a string
-          localStorage.setItem("auth", "true");
+          // spa area
+          // localStorage.setItem("auth", "true");
+
+          // api area
+          localStorage.setItem("token", response.data);
           // redirect to dashboard
           this.$router.push({ name: "Dashboard" });
         })
