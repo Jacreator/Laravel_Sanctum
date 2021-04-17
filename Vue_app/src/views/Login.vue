@@ -51,7 +51,7 @@ export default {
     login() {
       User.login(this.form)
         .then(() => {
-          // this.$root.$emit("login", true);
+          this.$root.$emit("login", true);
           // store auth as boolean in a string
           localStorage.setItem("auth", "true");
           // redirect to dashboard

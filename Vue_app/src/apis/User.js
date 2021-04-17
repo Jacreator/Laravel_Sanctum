@@ -8,11 +8,18 @@ export default {
     return Api.post("/register", form);
   },
 
+// for spa authentication
   async login(form) {
     await Csrf.getCookie();
 
     return Api.post("/login", form);
   },
+
+  // for api authentication
+  // login(form) {
+
+  //   return Api.post("/login", form);
+  // },
 
   async logout() {
     await Csrf.getCookie();

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Login;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
@@ -12,7 +13,7 @@ class LoginController extends Controller
     {
     	$request->validate([
     		'email' => ['required'],
-    		'password' => ['required', 'min:8']
+    		'password' => ['required']
     	]);
 
     	if (Auth::attempt($request->only('email', 'password'))) {
