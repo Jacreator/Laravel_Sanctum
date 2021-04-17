@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Resgister;
+namespace App\Http\Controllers\Login;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class RegisterController extends Controller
+class LoginController extends Controller
 {
     //
 }

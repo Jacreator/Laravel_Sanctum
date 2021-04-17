@@ -10,6 +10,7 @@ laravel_app/Homestead.json
 laravel_app/Homestead.yaml
 laravel_app/npm-debug.log
 laravel_app/yarn-error.log
+laravel_app/.phpintel
 
 # Vue part
 Vue_app/.DS_Store

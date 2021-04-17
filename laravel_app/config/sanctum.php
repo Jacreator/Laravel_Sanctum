@@ -47,4 +47,7 @@ return [
         'encrypt_cookies' => App\Http\Middleware\EncryptCookies::class,
     ],
 
+    // changing the prefix of sanctum
+    'prefix' => 'api',
+
 ];

@@ -2,13 +2,27 @@
 
 namespace App;
 
+use Illuminate\Support\Str;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, SoftDeletes;
+
+    // soft delete  
+    protected $date = ['deleted_at'];
+
+    // admin status
+    const ADMIN_USER = true;
+    const REGULAR_USER = false;
+
+    // user verification status
+    const VERIFIED_USER = '1';
+    const UNVERIFIED_USER = '0';
 
     /**
      * The attributes that are mass assignable.
@@ -36,4 +50,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // to generate code for verification
+    public static function generateVerificationCode()
+    {
+        return Str::random(45);
+    }
 }
